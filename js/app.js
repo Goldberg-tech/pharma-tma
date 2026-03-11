@@ -206,9 +206,10 @@ async function loadPrices(names) {
       const el = document.getElementById(`price-${slugify(name)}`);
       if (!el) continue;
       if (info.price) {
-        el.innerHTML = `<div class="price-val">${info.price} ₽</div>`;
+        const note = info.note ? `<div style="font-size:10px;color:var(--muted)">${info.note}</div>` : '';
+        el.innerHTML = `${note}<div class="price-val">${info.price} ₽</div>`;
       } else {
-        el.innerHTML = `<div style="font-size:11px;color:var(--muted)">нет данных</div>`;
+        el.innerHTML = `<div style="font-size:11px;color:var(--muted)">—</div>`;
       }
     }
   } catch {

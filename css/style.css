@@ -75,6 +75,11 @@ input  { font-family: inherit; }
 }
 .scroll-area::-webkit-scrollbar { display: none; }
 
+/* Safe area — отступ сверху для первого экрана */
+#screen-search .scroll-area {
+  padding-top: env(safe-area-inset-top, 16px);
+}
+
 /* ══════════════════════════════════════════════════════════════
    HERO
 ══════════════════════════════════════════════════════════════ */
@@ -284,7 +289,7 @@ input  { font-family: inherit; }
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px 16px 12px;
+  padding: calc(env(safe-area-inset-top, 0px) + 16px) 16px 12px;
   flex-shrink: 0;
 }
 .back-btn {
